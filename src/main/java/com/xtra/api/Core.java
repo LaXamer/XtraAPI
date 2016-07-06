@@ -33,6 +33,7 @@ import com.xtra.api.command.annotation.CommandAnnotationHelper;
 import com.xtra.api.config.ConfigHandler;
 import com.xtra.api.entity.EntityHandler;
 import com.xtra.api.listener.ListenerHandler;
+import com.xtra.api.plugin.XtraCorePluginContainer;
 import com.xtra.api.plugin.XtraCorePluginHandler;
 import com.xtra.api.registry.CommandRegistry;
 import com.xtra.api.registry.ConfigRegistry;
@@ -47,6 +48,17 @@ public class Core {
 
     // Set by the implementation
     private static final Core CORE = null;
+
+    /**
+     * Initializes a plugin for use by XtraCore. This method nees to be called
+     * before any others.
+     * 
+     * @param plugin The plugin object
+     * @return The new xtracore plugin container
+     */
+    public static XtraCorePluginContainer initialize(Object plugin) {
+        return CORE.initialize(plugin);
+    }
 
     /**
      * Gets the {@link CommandHandler} for the specified plugin object. If a
