@@ -29,6 +29,8 @@ import com.xtra.api.command.base.CommandBase;
 
 /**
  * The phase at which a {@link CommandRunnable} will run.
+ * 
+ * <p>See the JavaDocs for the enums for more information.</p>
  */
 public enum CommandPhase {
 

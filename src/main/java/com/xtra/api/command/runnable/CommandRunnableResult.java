@@ -27,6 +27,12 @@ package com.xtra.api.command.runnable;
 
 import org.spongepowered.api.command.CommandResult;
 
+/**
+ * The result of running a {@link CommandRunnable}. There are two main return
+ * types, {@link CommandRunnableResult#keepRunning()} and
+ * {@link CommandRunnableResult#stop()}. See the JavaDocs of those methods for
+ * more information.
+ */
 public class CommandRunnableResult {
 
     private CommandResult result;

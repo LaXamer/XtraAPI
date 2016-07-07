@@ -30,16 +30,10 @@ import java.util.Optional;
 
 import com.xtra.api.util.exceptions.XtraCoreException;
 
+/**
+ * A handler for managing {@link XtraCorePluginContainer}s.
+ */
 public interface XtraCorePluginHandler {
-
-    /**
-     * Creates a new {@link XtraCorePluginContainer}. If the specified Object is
-     * not a plugin, then an {@link XtraCoreException} is raised.
-     * 
-     * @param plugin The plugin to add
-     * @return The added xtracore plugin container
-     */
-    XtraCorePluginContainer add(Object plugin);
 
     /**
      * Gets the {@link XtraCorePluginContainer} for the specified plugin class.

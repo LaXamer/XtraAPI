@@ -35,7 +35,17 @@ import org.spongepowered.api.text.channel.MessageReceiver;
 import org.spongepowered.api.text.format.TextColor;
 
 import com.xtra.api.command.Command;
+import com.xtra.api.plugin.XtraCorePluginContainer;
 
+/**
+ * The help pagination manager for a {@link XtraCorePluginContainer}. The help
+ * pagination handler automatically fetches all registered {@link Command}s
+ * within a plugin and brings them together to produce a proper help list.
+ * 
+ * <p>An example of an entry to the help list would be similar to this:</p>
+ * 
+ * <code>/my-command [usage] - My command description</code>
+ */
 public interface HelpPaginationHandler {
 
     /**
@@ -71,21 +81,21 @@ public interface HelpPaginationHandler {
     TextColor getDescriptionColor();
 
     /**
-     * Gets the commands that were used in the pagination list.
+     * Gets the {@link Command}s that were used in the pagination list.
      * 
      * @return The commands used in the pagination list
      */
     Collection<Command> getCommands();
 
     /**
-     * Gets the commands that were ignored from the pagination list.
+     * Gets the {@link Command}s that were ignored from the pagination list.
      * 
      * @return The ignored commands from the pagination list
      */
     Collection<Class<? extends Command>> getIgnoredCommands();
 
     /**
-     * Gets the text contents of the pagination list.
+     * Gets the {@link Text} contents of the pagination list.
      * 
      * @return The text contents of the pagination list
      */
@@ -118,8 +128,8 @@ public interface HelpPaginationHandler {
         Builder descriptionColor(TextColor color);
 
         /**
-         * Sets any commands to be ignored by this pagination list. Any commands
-         * specified here will not be in the final pagination list.
+         * Sets any {@link Command}s to be ignored by this pagination list. Any
+         * commands specified here will not be in the final pagination list.
          * 
          * @param commands The commands to ignore
          * @return The builder
@@ -128,7 +138,7 @@ public interface HelpPaginationHandler {
         Builder ignoreCommands(Class<? extends Command>... commands);
 
         /**
-         * Sets the child behavior of the pagination list.
+         * Sets the {@link ChildBehavior} of the pagination list.
          * 
          * @param behavior The child behavior
          * @return The builder
@@ -136,7 +146,7 @@ public interface HelpPaginationHandler {
         Builder childBehavior(@Nullable ChildBehavior behavior);
 
         /**
-         * Sets the command ordering of the pagination list.
+         * Sets the {@link CommandOrdering} of the pagination list.
          * 
          * @param ordering The command ordering
          * @return The builder

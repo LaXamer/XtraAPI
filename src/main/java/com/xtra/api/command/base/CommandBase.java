@@ -36,9 +36,17 @@ import com.xtra.api.command.Command;
 import com.xtra.api.util.command.CommandBaseExecutor;
 
 /**
- * Provides a base for commands.
+ * Provides a base for commands. Support for many XtraCore command features are
+ * provided through this default implementation. It is highly recommended to use
+ * this base class, over implementing your own {@link Command} or using
+ * {@link CommandBaseLite}.
  * 
- * @param <T> The {@link CommandSource} required to execute this command
+ * @param <T> The {@link CommandSource} required to execute this command. If a
+ *        {@link CommandSource} not of the same type as the one specified in
+ *        this generic attempts to execute this command, they will receive an
+ *        error message. Note that if you wish for any {@link CommandSource} to
+ *        execute this command, specify <code>CommandSource</code> in the
+ *        generic.
  */
 public abstract class CommandBase<T extends CommandSource> implements Command {
 

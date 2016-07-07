@@ -50,7 +50,7 @@ public class Core {
     private static ICore CORE = null;
 
     /**
-     * Initializes a plugin for use by XtraCore. This method nees to be called
+     * Initializes a plugin for use by XtraCore. This method needs to be called
      * before any others.
      * 
      * @param plugin The plugin object

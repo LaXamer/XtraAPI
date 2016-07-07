@@ -31,9 +31,22 @@ import org.spongepowered.api.command.args.CommandContext;
 /**
  * Indicates that a piece of code will be ran sometime during a commands
  * execution, such as before or after execution.
+ * 
+ * @see CommandPhase
  */
 @FunctionalInterface
 public interface CommandRunnable {
 
+    /**
+     * The runnable to actually run. Implement this method specifying your own
+     * code within the method body and add it to a
+     * {@link CommandRunnableHandler}.
+     * 
+     * @param source The command source that executed the command and thusly the
+     *        {@link CommandRunnable}.
+     * @param args The specified arguments for the command
+     * @return A result for the execution of this {@link CommandRunnable}. See
+     *         {@link CommandRunnableResult} for more information.
+     */
     CommandRunnableResult run(CommandSource source, CommandContext args);
 }

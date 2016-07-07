@@ -30,7 +30,8 @@ import java.util.Optional;
 import com.xtra.api.command.Command;
 
 /**
- * Allows the getting and setting of a {@link CommandState} on a command.
+ * Allows the getting and setting of a {@link CommandState} on a
+ * {@link Command}.
  */
 public interface CommandStateHandler {
 
@@ -46,8 +47,8 @@ public interface CommandStateHandler {
      * Gets the {@link CommandState} for the specified command.
      * 
      * @param clazz The class of the command
-     * @return {@link Optional#empty()} is the command could not be found,
-     *         otherwise the command state
+     * @return The command state, or {@link Optional#empty()} if the command
+     *         could not be found
      */
     Optional<CommandState> getState(Class<? extends Command> clazz);
 }

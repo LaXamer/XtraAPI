@@ -32,7 +32,8 @@ import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
 
 /**
- * A base class for a config implementation.
+ * A base class for a config implementation. This handles much of the logic of
+ * creating a configuration file for you.
  */
 public abstract class ConfigBase implements Config {
 

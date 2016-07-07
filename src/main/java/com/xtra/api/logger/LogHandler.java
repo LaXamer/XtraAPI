@@ -25,13 +25,20 @@
 
 package com.xtra.api.logger;
 
+import java.util.Optional;
+
+/**
+ * A handler for managing {@link Logger}s. This may be used for managing a
+ * {@link Logger} for a specific plugin.
+ */
 public interface LogHandler {
 
     /**
      * Gets the {@link Logger} for the specified plugin class.
      * 
      * @param clazz The plugin class
-     * @return The logger
+     * @return The logger, or {@link Optional#empty()} if the plugin class could
+     *         not be found
      */
-    Logger getLogger(Class<?> clazz);
+    Optional<Logger> getLogger(Class<?> clazz);
 }

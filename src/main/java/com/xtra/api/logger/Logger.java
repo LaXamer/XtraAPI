@@ -25,6 +25,10 @@
 
 package com.xtra.api.logger;
 
+/**
+ * A custom logger provided by XtraCore to split plugin logging into separate
+ * and easily readable files.
+ */
 public interface Logger {
 
     /**

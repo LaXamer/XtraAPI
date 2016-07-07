@@ -34,7 +34,8 @@ public interface BanHandler {
 
     /**
      * Gets the ban reason for the specified profile. Will return
-     * {@link Optional#empty()} if one does not exist.
+     * {@link Optional#empty()} if the specified {@link GameProfile} is not
+     * banned or if there is no specified reason for the ban.
      * 
      * @param profile The profile to get the ban reason from
      * @return The reason, or {@link Optional#empty()} if one is not available

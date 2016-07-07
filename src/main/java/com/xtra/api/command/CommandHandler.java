@@ -28,35 +28,42 @@ package com.xtra.api.command;
 import java.util.Collection;
 import java.util.Optional;
 
+import com.xtra.api.Core;
 import com.xtra.api.command.runnable.CommandRunnableHandler;
 import com.xtra.api.command.state.CommandStateHandler;
+import com.xtra.api.plugin.XtraCorePluginContainer;
 
+/**
+ * A 'handler' for commands. Each {@link XtraCorePluginContainer} is assigned a
+ * CommandHandler upon calling {@link Core#provideCommandHandler(Object)}.
+ */
 public interface CommandHandler {
 
     /**
      * Gets the command object for the specified class.
      * 
      * @param clazz The command class
-     * @return {@link Optional#empty()} if the command could not be found
+     * @return The command object, or {@link Optional#empty()} if the command
+     *         could not be found
      */
     Optional<Command> getCommand(Class<? extends Command> clazz);
 
     /**
-     * Gets all commands for this command handler.
+     * Gets a collection of all commands for this particular command handler.
      * 
-     * @return All the commands for this command handler
+     * @return All of the commands for this command handler
      */
     Collection<Command> getCommands();
 
     /**
-     * Gets the associated command runnable handler.
+     * Gets the associated {@link CommandRunnableHandler}.
      * 
      * @return The command runnable handler
      */
     CommandRunnableHandler getCommandRunnableHandler();
 
     /**
-     * Gets the associated command state handler.
+     * Gets the associated {@link CommandStateHandler}.
      * 
      * @return The command state handler
      */

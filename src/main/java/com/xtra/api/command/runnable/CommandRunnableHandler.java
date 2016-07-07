@@ -26,9 +26,14 @@
 package com.xtra.api.command.runnable;
 
 import com.xtra.api.command.Command;
+import com.xtra.api.plugin.XtraCorePluginContainer;
 
 /**
- * A handler for {@link CommandRunnable}s.
+ * A handler for {@link CommandRunnable}s. This may be used for adding or
+ * removing any {@link CommandRunnable}s. Note that this handler is created
+ * along with a {@link CommandHandler}, and thusly any
+ * {@link XtraCorePluginContainer} that has a {@link CommandHandler}, also has a
+ * corresponding runnable handler.
  */
 public interface CommandRunnableHandler {
 
@@ -43,15 +48,17 @@ public interface CommandRunnableHandler {
     void add(CommandRunnable runnable, Class<? extends Command>... classes);
 
     /**
-     * Adds this specified {@link CommandRunnable} to be ran for all commands.
+     * Adds this specified {@link CommandRunnable} to be ran for all commands of
+     * a {@link CommandHandler}.
      * 
-     * @param runnable The runnable to run for all commands
+     * @param runnable The runnable to run for all commands of the command
+     *        handler
      */
     void addForAllCommands(CommandRunnable runnable);
 
     /**
-     * Adds the {@link CommandRunnable} to be ran for all commands except for
-     * the specified classes.
+     * Adds the {@link CommandRunnable} to be ran for all commands of a
+     * {@link CommandHandler} except for the specified classes.
      * 
      * @param runnable The runnable to run
      * @param classes The classes to not run this runnable on
@@ -64,14 +71,12 @@ public interface CommandRunnableHandler {
      * {@link CommandRunnable}s.
      * 
      * @param clazz The class to check
-     * @return If the class has any corresponding runnables
+     * @return If the class has any corresponding command runnables
      */
     boolean doesCommandHaveRunnable(Class<? extends Command> clazz);
 
     /**
-     * Removes a {@link CommandRunnable} from the specified class. Note that if
-     * the class has multiple corresponding {@link CommandRunnable}s, they will
-     * all be removed.
+     * Removes all {@link CommandRunnable}s from the specified class.
      * 
      * @param clazz The class to remove runnables from
      */

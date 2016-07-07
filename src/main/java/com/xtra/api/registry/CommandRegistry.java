@@ -32,29 +32,35 @@ import java.util.Optional;
 import com.xtra.api.command.Command;
 import com.xtra.api.plugin.XtraCorePluginContainer;
 
+/**
+ * The global registry for {@link Command}s. All {@link Command}s are registered
+ * through here.
+ */
 public interface CommandRegistry {
 
     /**
-     * Gets the specified command from the global command registry.
+     * Gets the specified {@link Command} from the global command registry.
      * 
      * @param clazz The class of the command to get
-     * @return The command object
+     * @return The command object, or {@link Optional#empty()} if the command
+     *         could not be found
      */
     Optional<Command> getCommand(Class<? extends Command> clazz);
 
     /**
-     * Gets a mapping entry of the specified command and its
-     * {@link XtraCorePluginContainer}.
+     * Gets a mapping entry of the specified {@link Command} object and its
+     * corresponding {@link XtraCorePluginContainer}.
      * 
      * @param clazz The class of the command to get
-     * @return The command and container mapping entry
+     * @return The command and container mapping entry, or
+     *         {@link Optional#empty()} if the command could not be found
      */
     Optional<Map.Entry<Command, XtraCorePluginContainer>> getEntry(Class<? extends Command> clazz);
 
     /**
-     * Gets all of the registered commands.
+     * Gets a collection of all of the registered commands.
      * 
-     * @return A set of the commands
+     * @return A collection of the commands
      */
     Collection<Command> getAllCommands();
 

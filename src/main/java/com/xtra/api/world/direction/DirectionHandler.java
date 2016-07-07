@@ -27,10 +27,13 @@ package com.xtra.api.world.direction;
 
 import org.spongepowered.api.util.Direction;
 
+/**
+ * An interface of direction utility methods.
+ */
 public interface DirectionHandler {
 
     /**
-     * Gets a cardinal direction from the specified yaw value.
+     * Gets a cardinal {@link Direction} from the specified yaw value.
      * 
      * @param yaw The yaw value
      * @return The cardinal direction for the specified yaw value
@@ -38,7 +41,8 @@ public interface DirectionHandler {
     Direction getCardinalDirectionFromYaw(double yaw);
 
     /**
-     * Gets the cardinal left direction from the specified cardinal direction.
+     * Gets the cardinal left {@link Direction} from the specified cardinal
+     * direction.
      * 
      * @param direction The cardinal direction
      * @return The left cardinal direction from the specified cardinal direction
@@ -46,7 +50,8 @@ public interface DirectionHandler {
     Direction getCardinalLeft(Direction direction);
 
     /**
-     * Gets the cardinal right direction from the specified cardinal direction.
+     * Gets the cardinal right {@link Direction} from the specified cardinal
+     * direction.
      * 
      * @param direction The cardinal direction
      * @return The right cardinal direction from the specified cardinal

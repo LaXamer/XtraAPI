@@ -35,10 +35,10 @@ import com.xtra.api.command.Command;
 public interface CommandAnnotationHelper {
 
     /**
-     * Returns if the command is an async command.
+     * Returns if the command will be ran asynchronously.
      * 
      * @param clazz The command class to check
-     * @return If the command is async
+     * @return If the command will run asynchronously
      */
     boolean isAsync(Class<? extends Command> clazz);
 

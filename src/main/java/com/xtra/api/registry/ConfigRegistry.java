@@ -32,13 +32,18 @@ import java.util.Optional;
 import com.xtra.api.config.Config;
 import com.xtra.api.plugin.XtraCorePluginContainer;
 
+/**
+ * The global registry for {@link Config}s. All {@link Config}s are registered
+ * through here.
+ */
 public interface ConfigRegistry {
 
     /**
      * Gets the specified config from the global config registry.
      * 
      * @param clazz The class of the config to get
-     * @return The config object
+     * @return The config object, or {@link Optional#empty()} if the config
+     *         could not be found
      */
     Optional<Config> getConfig(Class<? extends Config> clazz);
 
@@ -47,14 +52,15 @@ public interface ConfigRegistry {
      * {@link XtraCorePluginContainer}.
      * 
      * @param clazz The class of the config to get
-     * @return The config and container mapping entry
+     * @return The config and container mapping entry, or
+     *         {@link Optional#empty()} if the config could not be found
      */
     Optional<Map.Entry<Config, XtraCorePluginContainer>> getEntry(Class<? extends Config> clazz);
 
     /**
-     * Gets all of the registered configs.
+     * Gets a collection of all of the registered configs.
      * 
-     * @return A set of the configs
+     * @return A collection of the configs
      */
     Collection<Config> getAllConfigs();
 

@@ -25,9 +25,15 @@
 
 package com.xtra.api.config;
 
+import com.xtra.api.config.base.ConfigBase;
+
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
 
+/**
+ * A configuration file within XtraCore. Initialization of the configuration
+ * file is provided through the default {@link ConfigBase}.
+ */
 public interface Config {
 
     /**

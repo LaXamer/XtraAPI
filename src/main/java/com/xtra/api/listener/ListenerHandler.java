@@ -27,15 +27,19 @@ package com.xtra.api.listener;
 
 import java.util.Collection;
 
+import com.xtra.api.plugin.XtraCorePluginContainer;
+
 /**
- * A handler used for automatically registering plugin listeners.
+ * A handler used for automatically registering plugin listeners. Like a few
+ * others, this handler is on a per-plugin basis, and can be used for retrieving
+ * only the listeners of a specific {@link XtraCorePluginContainer}.
  */
 public interface ListenerHandler {
 
     /**
-     * Gets the classes that were registered for the listeners.
+     * Gets a collection of the classes that were registered.
      * 
-     * @return The listener classes
+     * @return A collection of the listener classes
      */
     Collection<Class<?>> getListenerClasses();
 }

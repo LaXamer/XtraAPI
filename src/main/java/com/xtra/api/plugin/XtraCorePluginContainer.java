@@ -34,6 +34,10 @@ import com.xtra.api.config.ConfigHandler;
 import com.xtra.api.logger.Logger;
 import com.xtra.api.text.HelpPaginationHandler;
 
+/**
+ * A container that holds various things that correspond to a single plugin
+ * utilizing XtraCore.
+ */
 public interface XtraCorePluginContainer {
 
     /**
@@ -44,21 +48,21 @@ public interface XtraCorePluginContainer {
     Object getPlugin();
 
     /**
-     * Gets the plugin's container.
+     * Gets the plugin's {@link PluginContainer}.
      * 
-     * @return The plugin's container
+     * @return The plugin's plugin container
      */
     PluginContainer getPluginContainer();
 
     /**
-     * Gets this plugin's logger.
+     * Gets this plugin's {@link Logger}.
      * 
      * @return The plugin's logger
      */
     Logger getLogger();
 
     /**
-     * Gets the plugin's command handler.
+     * Gets the plugin's {@link CommandHandler}.
      * 
      * @return The plugin's command handler, or {@link Optional#empty()} if the
      *         plugin does not have one
@@ -66,7 +70,7 @@ public interface XtraCorePluginContainer {
     Optional<CommandHandler> getCommandHandler();
 
     /**
-     * Gets the plugin's config handler.
+     * Gets the plugin's {@link ConfigHandler}.
      * 
      * @return The plugin's config handler, or {@link Optional#empty()} if the
      *         plugin does not have one
@@ -74,7 +78,7 @@ public interface XtraCorePluginContainer {
     Optional<ConfigHandler> getConfigHandler();
 
     /**
-     * Gets the plugin's help pagination handler.
+     * Gets the plugin's {@link HelpPaginationHandler}.
      * 
      * @return The plugin's help pagnation handler, or {@link Optional#empty()}
      *         if the plugin does not have one

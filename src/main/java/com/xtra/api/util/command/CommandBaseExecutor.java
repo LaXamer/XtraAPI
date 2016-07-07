@@ -43,5 +43,6 @@ import com.xtra.api.command.base.CommandBase;
  */
 public interface CommandBaseExecutor {
 
+    @SuppressWarnings("rawtypes")
     CommandResult execute(CommandBase command, Class<?> targetSource, CommandSource actualSource, CommandContext args) throws CommandException;
 }

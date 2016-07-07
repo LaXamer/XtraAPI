@@ -30,14 +30,21 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import com.xtra.api.config.Config;
+
+/**
+ * Signifies that this {@link Config} should be registered by XtraCore. If a
+ * {@link Config} does not hold this annotation, the config will not be
+ * registered.
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface RegisterConfig {
 
     /**
-     * If this config should use the shared config root directory. This should
-     * still use {@link RegisterConfig#configName()} instead of using the
-     * plugin's id, unlike Sponge's default configuration.
+     * If this config should use the shared config root directory. Even if this
+     * is true, this will still use {@link RegisterConfig#configName()} instead
+     * of using the plugin's id, unlike Sponge's default configuration.
      * 
      * @return If the config should use the shared root directory
      */

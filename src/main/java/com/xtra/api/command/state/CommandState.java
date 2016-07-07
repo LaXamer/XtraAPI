@@ -26,10 +26,20 @@
 package com.xtra.api.command.state;
 
 /**
- * An enum for determining if a command should run.
+ * An enum for determining if a {@link Command} should be allowed to run.
  */
 public enum CommandState {
 
+    /**
+     * Specifies that the {@link Command} is enabled and should be allowed to
+     * run.
+     */
     ENABLED,
+
+    /**
+     * Specifies that the {@link Command} is disabled and should not be allowed
+     * to run. Any user attempting to run a disabled {@link Command} will
+     * receive an error message.
+     */
     DISABLED;
 }

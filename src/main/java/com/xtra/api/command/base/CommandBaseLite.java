@@ -34,8 +34,12 @@ import com.xtra.api.command.Command;
 import com.xtra.api.util.command.CommandBaseLiteExecutor;
 
 /**
- * A 'lite' version of {@link CommandBase}, without all of the extra logic. Note
- * that some logic is kept, such as asynchronous commands.
+ * A 'lite' version of {@link CommandBase}, without all of the extra logic. It
+ * is highly recommended to use {@link CommandBase} over this, as many extra
+ * features provided through XtraCore are unavailable here.
+ * 
+ * <p>Note that child commands and asynchronous commands will still function
+ * correctly with this.</p>
  */
 public abstract class CommandBaseLite implements Command {
 

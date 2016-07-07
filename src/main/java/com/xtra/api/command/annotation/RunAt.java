@@ -33,6 +33,11 @@ import java.lang.annotation.Target;
 import com.xtra.api.command.runnable.CommandPhase;
 import com.xtra.api.command.runnable.CommandRunnable;
 
+/**
+ * An annotation that may be attached to any {@link CommandRunnable}s if they
+ * wish to specify when their {@link CommandRunnable} will be ran and in what
+ * order they will be ran to other {@link CommandRunnable}s.
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface RunAt {
@@ -41,15 +46,18 @@ public @interface RunAt {
      * The phase at which a {@link CommandRunnable} will execute.
      * 
      * @return The phase at which this will run
+     * @see CommandPhase
      */
     CommandPhase phase() default CommandPhase.START;
 
     /**
      * The priority at which a {@link CommandRunnable} should be executed
-     * compared to other runnables. The lower this value, the higher priority it
-     * gets.
+     * compared to other {@link CommandRunnable}s. The lower this value, the
+     * higher priority it gets.
      * 
-     * @return The priority
+     * <p>The default priority is 1000.</p>
+     * 
+     * @return The priority at which the runnable should be ran
      */
     int priority() default 1000;
 }

@@ -33,14 +33,18 @@ import java.lang.annotation.Target;
 import com.xtra.api.command.Command;
 import com.xtra.api.util.command.EmptyCommand;
 
+/**
+ * Any {@link Command}s that wish to be registered by XtraCore must have this
+ * annotation attached to their command class.
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface RegisterCommand {
 
     /**
-     * Whether this command should be ran async.
+     * Whether this command should be ran asynchronously.
      * 
-     * @return If this command should run async
+     * @return If this command should run asynchronously
      */
     boolean async() default false;
 
