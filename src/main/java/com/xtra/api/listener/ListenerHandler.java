@@ -25,20 +25,12 @@
 
 package com.xtra.api.listener;
 
-import java.lang.reflect.Method;
 import java.util.Collection;
 
 /**
  * A handler used for automatically registering plugin listeners.
  */
 public interface ListenerHandler {
-
-    /**
-     * Gets the listeners for this {@link ListenerHandler}.
-     * 
-     * @return The listeners
-     */
-    Collection<Method> getListeners();
 
     /**
      * Gets the classes that were registered for the listeners.

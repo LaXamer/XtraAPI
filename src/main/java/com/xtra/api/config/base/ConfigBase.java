@@ -26,6 +26,7 @@
 package com.xtra.api.config.base;
 
 import com.xtra.api.config.Config;
+import com.xtra.api.util.config.ConfigExecutor;
 
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
@@ -35,17 +36,26 @@ import ninja.leaping.configurate.loader.ConfigurationLoader;
  */
 public abstract class ConfigBase implements Config {
 
-    // NOTE: The below methods are overridden by the implementation. They are
-    // provided here to prevent the end-developer from implementing these
-    // themselves.
+    // NOTE: this is overridden by the implementation
+    private static ConfigExecutor BASE = null;
 
-    public void init() {}
+    public void init() {
+        BASE.init(this);
+    }
 
-    public void load() {}
+    public void load() {
+        BASE.load();
+    }
 
-    public void save() {}
+    public void save() {
+        BASE.save();
+    }
 
-    public ConfigurationLoader<CommentedConfigurationNode> loader() { return null; }
+    public ConfigurationLoader<CommentedConfigurationNode> loader() {
+        return BASE.loader();
+    }
 
-    public CommentedConfigurationNode rootNode() { return null; }
+    public CommentedConfigurationNode rootNode() {
+        return BASE.rootNode();
+    }
 }

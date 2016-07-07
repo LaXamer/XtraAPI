@@ -82,7 +82,7 @@ public interface HelpPaginationHandler {
      * 
      * @return The ignored commands from the pagination list
      */
-    Collection<Command> getIgnoredCommands();
+    Collection<Class<? extends Command>> getIgnoredCommands();
 
     /**
      * Gets the text contents of the pagination list.
@@ -99,7 +99,7 @@ public interface HelpPaginationHandler {
      */
     PaginationList.Builder getPaginationBuilder();
 
-    interface Builder {
+    public interface Builder {
 
         /**
          * Sets the command color for this pagination list.

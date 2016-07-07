@@ -29,20 +29,24 @@ import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.command.args.CommandContext;
-import org.spongepowered.api.command.spec.CommandExecutor;
 
 import com.xtra.api.command.Command;
+import com.xtra.api.util.command.CommandBaseLiteExecutor;
 
 /**
  * A 'lite' version of {@link CommandBase}, without all of the extra logic. Note
  * that some logic is kept, such as asynchronous commands.
  */
-public abstract class CommandBaseLite implements Command, CommandExecutor {
+public abstract class CommandBaseLite implements Command {
+
+    // NOTE: this is overridden by the implementation
+    private static CommandBaseLiteExecutor BASE = null;
 
     // We need this method so we can add a 'throws Exception'. Also to stay
     // consistent with CommandBase.
     public abstract CommandResult executeCommand(CommandSource src, CommandContext args) throws Exception;
 
-    // NOTE: this is overridden by the implementation
-    public CommandResult execute(CommandSource src, CommandContext args) throws CommandException { return null; }
+    public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
+        return BASE.execute(this, src, args);
+    }
 }

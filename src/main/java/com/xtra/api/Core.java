@@ -33,6 +33,7 @@ import com.xtra.api.command.annotation.CommandAnnotationHelper;
 import com.xtra.api.config.ConfigHandler;
 import com.xtra.api.entity.EntityHandler;
 import com.xtra.api.listener.ListenerHandler;
+import com.xtra.api.logger.LogHandler;
 import com.xtra.api.plugin.XtraCorePluginContainer;
 import com.xtra.api.plugin.XtraCorePluginHandler;
 import com.xtra.api.registry.CommandRegistry;
@@ -43,11 +44,10 @@ import com.xtra.api.world.direction.DirectionHandler;
 /**
  * A core class for accessing various parts of the API.
  */
-@SuppressWarnings("static-access")
 public class Core {
 
     // Set by the implementation
-    private static final Core CORE = null;
+    private static ICore CORE = null;
 
     /**
      * Initializes a plugin for use by XtraCore. This method nees to be called
@@ -175,6 +175,15 @@ public class Core {
      */
     public static EntityHandler getEntityHandler() {
         return CORE.getEntityHandler();
+    }
+
+    /**
+     * Gets the {@link LogHandler}.
+     * 
+     * @return The log handler
+     */
+    public static LogHandler getLogHandler() {
+        return CORE.getLogHandler();
     }
 
     /**

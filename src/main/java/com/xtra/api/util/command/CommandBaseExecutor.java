@@ -23,32 +23,25 @@
  * SOFTWARE.
  */
 
-package com.xtra.api.command.annotation;
+package com.xtra.api.util.command;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.spongepowered.api.command.CommandException;
+import org.spongepowered.api.command.CommandResult;
+import org.spongepowered.api.command.CommandSource;
+import org.spongepowered.api.command.args.CommandContext;
 
-import com.xtra.api.command.Command;
-import com.xtra.api.util.command.EmptyCommand;
+import com.xtra.api.command.base.CommandBase;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface RegisterCommand {
+/**
+ * Because {@link CommandBase} needs to specify a command source in its generic,
+ * this interface is provided here and implemented via the implementation to
+ * pass the command source generic as well as the actual command source and the
+ * arguments.
+ * 
+ * <p>Please note: this is an API internal class, do NOT use this in your
+ * plugin.</p>
+ */
+public interface CommandBaseExecutor {
 
-    /**
-     * Whether this command should be ran async.
-     * 
-     * @return If this command should run async
-     */
-    boolean async() default false;
-
-    /**
-     * The parent for this command. If nothing is specified, this command will
-     * not have a parent command.
-     * 
-     * @return The parent command
-     */
-    Class<? extends Command> childOf() default EmptyCommand.class;
+    CommandResult execute(CommandBase command, Class<?> targetSource, CommandSource actualSource, CommandContext args) throws CommandException;
 }

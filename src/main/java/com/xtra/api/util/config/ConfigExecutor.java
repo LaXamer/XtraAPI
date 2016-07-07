@@ -23,32 +23,26 @@
  * SOFTWARE.
  */
 
-package com.xtra.api.command.annotation;
+package com.xtra.api.util.config;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import com.xtra.api.config.base.ConfigBase;
 
-import com.xtra.api.command.Command;
-import com.xtra.api.util.command.EmptyCommand;
+import ninja.leaping.configurate.commented.CommentedConfigurationNode;
+import ninja.leaping.configurate.loader.ConfigurationLoader;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface RegisterCommand {
+/**
+ * We need the config base object to be passed through to the implementation.
+ * Note that this is an API internal interface.
+ */
+public interface ConfigExecutor {
 
-    /**
-     * Whether this command should be ran async.
-     * 
-     * @return If this command should run async
-     */
-    boolean async() default false;
+    void init(ConfigBase base);
 
-    /**
-     * The parent for this command. If nothing is specified, this command will
-     * not have a parent command.
-     * 
-     * @return The parent command
-     */
-    Class<? extends Command> childOf() default EmptyCommand.class;
+    void load();
+
+    void save();
+
+    ConfigurationLoader<CommentedConfigurationNode> loader();
+
+    CommentedConfigurationNode rootNode();
 }

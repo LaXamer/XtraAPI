@@ -25,6 +25,8 @@
 
 package com.xtra.api.plugin;
 
+import java.util.Optional;
+
 import org.spongepowered.api.plugin.PluginContainer;
 
 import com.xtra.api.command.CommandHandler;
@@ -58,21 +60,24 @@ public interface XtraCorePluginContainer {
     /**
      * Gets the plugin's command handler.
      * 
-     * @return The plugin's command handler
+     * @return The plugin's command handler, or {@link Optional#empty()} if the
+     *         plugin does not have one
      */
-    CommandHandler getCommandHandler();
+    Optional<CommandHandler> getCommandHandler();
 
     /**
      * Gets the plugin's config handler.
      * 
-     * @return The plugin's config handler
+     * @return The plugin's config handler, or {@link Optional#empty()} if the
+     *         plugin does not have one
      */
-    ConfigHandler getConfigHandler();
+    Optional<ConfigHandler> getConfigHandler();
 
     /**
      * Gets the plugin's help pagination handler.
      * 
-     * @return The plugin's help pagnation handler
+     * @return The plugin's help pagnation handler, or {@link Optional#empty()}
+     *         if the plugin does not have one
      */
-    HelpPaginationHandler getHelpPaginationHandler();
+    Optional<HelpPaginationHandler> getHelpPaginationHandler();
 }

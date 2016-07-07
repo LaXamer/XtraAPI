@@ -25,23 +25,34 @@
 
 package com.xtra.api.command.base;
 
+import java.lang.reflect.ParameterizedType;
+
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.command.args.CommandContext;
-import org.spongepowered.api.command.spec.CommandExecutor;
 
 import com.xtra.api.command.Command;
+import com.xtra.api.util.command.CommandBaseExecutor;
 
 /**
  * Provides a base for commands.
  * 
  * @param <T> The {@link CommandSource} required to execute this command
  */
-public abstract class CommandBase<T extends CommandSource> implements Command, CommandExecutor {
+public abstract class CommandBase<T extends CommandSource> implements Command {
+
+    // NOTE: this is overridden by the implementation
+    private static CommandBaseExecutor BASE = null;
 
     public abstract CommandResult executeCommand(T src, CommandContext args) throws Exception;
 
-    // NOTE: this is overridden by the implementation
-    public CommandResult execute(CommandSource src, CommandContext args) throws CommandException { return null; }
+    public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
+        // Get the generic type
+        @SuppressWarnings("rawtypes")
+        Class<?> o = ((Class) ((ParameterizedType) getClass()
+                .getGenericSuperclass()).getActualTypeArguments()[0]);
+        // Let the implementation handle the rest of the logic
+        return BASE.execute(this, o, src, args);
+    }
 }

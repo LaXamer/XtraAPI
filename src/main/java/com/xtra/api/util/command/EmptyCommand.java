@@ -23,7 +23,7 @@
  * SOFTWARE.
  */
 
-package com.xtra.api.command.base;
+package com.xtra.api.util.command;
 
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;

@@ -28,8 +28,9 @@ package com.xtra.api.command;
 import javax.annotation.Nullable;
 
 import org.spongepowered.api.command.args.CommandElement;
+import org.spongepowered.api.command.spec.CommandExecutor;
 
-public interface Command {
+public interface Command extends CommandExecutor {
 
     /**
      * The aliases for the command. The first alias is used in the help list.
