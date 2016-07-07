@@ -27,6 +27,8 @@ package com.xtra.api.command.runnable;
 
 import org.spongepowered.api.command.CommandResult;
 
+import com.xtra.api.command.Command;
+
 /**
  * The result of running a {@link CommandRunnable}. There are two main return
  * types, {@link CommandRunnableResult#keepRunning()} and

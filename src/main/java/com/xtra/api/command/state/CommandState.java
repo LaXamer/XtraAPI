@@ -25,6 +25,8 @@
 
 package com.xtra.api.command.state;
 
+import com.xtra.api.command.Command;
+
 /**
  * An enum for determining if a {@link Command} should be allowed to run.
  */

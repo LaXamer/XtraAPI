@@ -26,6 +26,7 @@
 package com.xtra.api.command.runnable;
 
 import com.xtra.api.command.Command;
+import com.xtra.api.command.CommandHandler;
 import com.xtra.api.plugin.XtraCorePluginContainer;
 
 /**

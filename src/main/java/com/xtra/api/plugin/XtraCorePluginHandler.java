@@ -43,7 +43,7 @@ public interface XtraCorePluginHandler {
      *         specified plugin object does not have an xtracore plugin
      *         container
      */
-    Optional<XtraCorePluginContainer> getContainer(Class<?> plugin);
+    Optional<XtraCorePluginContainer> getContainer(Class<?> clazz);
 
     /**
      * Gets the {@link XtraCorePluginContainer} for the specified plugin class.
