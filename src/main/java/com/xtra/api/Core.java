@@ -61,15 +61,15 @@ public class Core {
     }
 
     /**
-     * Gets the {@link CommandHandler} for the specified plugin object. If a
-     * command handler does not exist for the specified pluin object, one will
-     * be created.
+     * Creates a {@link CommandHandler} for the specified plugin class. Note
+     * that if a {@link CommandHandler} already exists for the specified plugin
+     * class, the pre-existing {@link CommandHandler} will be returned instead.
      * 
-     * @param plugin The plugin object
+     * @param clazz The plugin class
      * @return The command handler for the plugin
      */
-    public static CommandHandler provideCommandHandler(Object plugin) {
-        return CORE.provideCommandHandler(plugin);
+    public static CommandHandler createCommandHandler(Class<?> clazz) {
+        return CORE.createCommandHandler(clazz);
     }
 
     /**
@@ -79,19 +79,20 @@ public class Core {
      * @return {@link Optional#empty()} if the plugin class could not be found,
      *         or if a command handler does not exist for the provided class
      */
-    public static Optional<CommandHandler> provideCommandHandler(Class<?> clazz) {
-        return CORE.provideCommandHandler(clazz);
+    public static Optional<CommandHandler> getCommandHandler(Class<?> clazz) {
+        return CORE.getCommandHandler(clazz);
     }
 
     /**
-     * Gets the {@link ConfigHandler} for the specified plugin object. If one
-     * does not exist, one will be created.
+     * Creates a {@link ConfigHandler} for the specified plugin class. Note that
+     * if a {@link ConfigHandler} already exists for the specified plugin class,
+     * the pre-existing {@link ConfigHandler} will be returned instead.
      * 
-     * @param plugin The plugin object
+     * @param clazz The plugin class
      * @return The config handler for the plugin
      */
-    public static ConfigHandler provideConfigHandler(Object plugin) {
-        return CORE.provideConfigHandler(plugin);
+    public static ConfigHandler createConfigHandler(Class<?> clazz) {
+        return CORE.createConfigHandler(clazz);
     }
 
     /**
@@ -101,19 +102,20 @@ public class Core {
      * @return {@link Optional#empty()} if the plugin class could not be found,
      *         or if a config handler does not exist for the provided class
      */
-    public static Optional<ConfigHandler> provideConfigHandler(Class<?> clazz) {
-        return CORE.provideConfigHandler(clazz);
+    public static Optional<ConfigHandler> getConfigHandler(Class<?> clazz) {
+        return CORE.getConfigHandler(clazz);
     }
 
     /**
-     * Gets the {@link ListenerHandler} for the specified plugin object. If one
-     * does not exist, one will be created.
+     * Creates a {@link ListenerHandler} for the specified plugin class. Note
+     * that if a {@link ListenerHandler} already exists for the specified plugin
+     * class, the pre-existing {@link ListenerHandler} will be returned instead.
      * 
-     * @param plugin The plugin object
+     * @param clazz The plugin class
      * @return The listener handler for the plugin
      */
-    public static ListenerHandler provideListenerHandler(Object plugin) {
-        return CORE.provideListenerHandler(plugin);
+    public static ListenerHandler createListenerHandler(Class<?> clazz) {
+        return CORE.createListenerHandler(clazz);
     }
 
     /**
@@ -123,8 +125,8 @@ public class Core {
      * @return {@link Optional#empty()} if the plugin class could not be found,
      *         or if a listener handler does not exist for the provided class
      */
-    public static Optional<ListenerHandler> provideListenerHandler(Class<?> clazz) {
-        return CORE.provideListenerHandler(clazz);
+    public static Optional<ListenerHandler> getListenerHandler(Class<?> clazz) {
+        return CORE.getListenerHandler(clazz);
     }
 
     /**

@@ -48,17 +48,17 @@ public interface ICore {
 
     XtraCorePluginContainer initialize(Object plugin);
 
-    CommandHandler provideCommandHandler(Object plugin);
+    CommandHandler createCommandHandler(Class<?> clazz);
 
-    Optional<CommandHandler> provideCommandHandler(Class<?> clazz);
+    Optional<CommandHandler> getCommandHandler(Class<?> clazz);
 
-    ConfigHandler provideConfigHandler(Object plugin);
+    ConfigHandler createConfigHandler(Class<?> clazz);
 
-    Optional<ConfigHandler> provideConfigHandler(Class<?> clazz);
+    Optional<ConfigHandler> getConfigHandler(Class<?> clazz);
 
-    ListenerHandler provideListenerHandler(Object plugin);
+    ListenerHandler createListenerHandler(Class<?> clazz);
 
-    Optional<ListenerHandler> provideListenerHandler(Class<?> clazz);
+    Optional<ListenerHandler> getListenerHandler(Class<?> clazz);
 
     HelpPaginationHandler.Builder createHelpPaginationBuilder(Object plugin);
 

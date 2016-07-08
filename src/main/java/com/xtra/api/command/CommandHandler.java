@@ -35,7 +35,7 @@ import com.xtra.api.plugin.XtraCorePluginContainer;
 
 /**
  * A 'handler' for commands. Each {@link XtraCorePluginContainer} is assigned a
- * CommandHandler upon calling {@link Core#provideCommandHandler(Object)}.
+ * CommandHandler upon calling {@link Core#createCommandHandler(Class)}.
  */
 public interface CommandHandler {
 
