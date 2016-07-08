@@ -223,4 +223,13 @@ public class Core {
     public static DirectionHandler getDirectionHandler() {
         return CORE.getDirectionHandler();
     }
+
+    /**
+     * Gets the current XtraAPI version.
+     * 
+     * @return The version
+     */
+    public static String getVersion() {
+        return CORE.getVersion();
+    }
 }

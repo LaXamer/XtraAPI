@@ -79,4 +79,6 @@ public interface ICore {
     ConfigRegistry getConfigRegistry();
 
     DirectionHandler getDirectionHandler();
+
+    String getVersion();
 }
