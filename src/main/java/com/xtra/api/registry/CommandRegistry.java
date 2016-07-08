@@ -30,6 +30,8 @@ import java.util.Map;
 import java.util.Optional;
 
 import com.xtra.api.command.Command;
+import com.xtra.api.command.runnable.CommandRunnable;
+import com.xtra.api.command.state.CommandState;
 import com.xtra.api.plugin.XtraCorePluginContainer;
 
 /**
@@ -71,4 +73,50 @@ public interface CommandRegistry {
      * @return A mapping of all of the commands and their containers
      */
     Map<Command, XtraCorePluginContainer> getAllCommandMappings();
+
+    /**
+     * Adds the specified {@link CommandRunnable} to be ran with the specified
+     * classes using the global command registry.
+     * 
+     * @param runnable The runnable to run with the specified classes
+     * @param classes The classes to run the command runnable on
+     */
+    @SuppressWarnings("unchecked")
+    void addRunnables(CommandRunnable runnable, Class<? extends Command>... classes);
+
+    /**
+     * Checks if the specified command class has any corresponding
+     * {@link CommandRunnable}s.
+     * 
+     * @param clazz The class to check
+     * @return If the class has any corresponding command runnables
+     */
+    boolean doesCommandHaveRunnable(Class<? extends Command> clazz);
+
+    /**
+     * Removes all {@link CommandRunnable}s from the specified class using the
+     * global command registry.
+     * 
+     * @param clazz The class to remove runnables from
+     */
+    void removeRunnables(Class<? extends Command> clazz);
+
+    /**
+     * Sets the {@link CommandState} for the specified command using the global
+     * command registry.
+     * 
+     * @param clazz The class of the command
+     * @param state The new state of the command
+     */
+    void setState(Class<? extends Command> clazz, CommandState state);
+
+    /**
+     * Gets the {@link CommandState} for the specified command using the global
+     * command registry.
+     * 
+     * @param clazz The class of the command
+     * @return The command state, or {@link Optional#empty()} if the command
+     *         could not be found
+     */
+    Optional<CommandState> getState(Class<? extends Command> clazz);
 }
