@@ -38,11 +38,11 @@ public interface ConfigExecutor {
 
     void init(ConfigBase base);
 
-    void load();
+    void load(ConfigStore store);
 
-    void save();
+    void save(ConfigStore store);
 
-    ConfigurationLoader<CommentedConfigurationNode> loader();
+    ConfigurationLoader<CommentedConfigurationNode> loader(ConfigStore store);
 
-    CommentedConfigurationNode rootNode();
+    CommentedConfigurationNode rootNode(ConfigStore store);
 }

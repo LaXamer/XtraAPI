@@ -23,42 +23,26 @@
  * SOFTWARE.
  */
 
-package com.xtra.api.config.base;
+package com.xtra.api.util.config;
 
-import com.xtra.api.config.Config;
-import com.xtra.api.util.config.ConfigExecutor;
-import com.xtra.api.util.config.ConfigStore;
+import com.xtra.api.config.base.ConfigBase;
+import com.xtra.api.plugin.XtraCorePluginContainer;
 
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
 
-/**
- * A base class for a config implementation. This handles much of the logic of
- * creating a configuration file for you.
- */
-public abstract class ConfigBase implements Config {
+public class ConfigStore {
 
-    // NOTE: this is overridden by the implementation
-    private static ConfigExecutor BASE = null;
-    private ConfigStore store = null;
+    public XtraCorePluginContainer entry;
+    public ConfigurationLoader<CommentedConfigurationNode> loader;
+    public CommentedConfigurationNode rootNode;
+    public ConfigBase base;
 
-    public void init() {
-        BASE.init(this);
-    }
-
-    public void load() {
-        BASE.load(store);
-    }
-
-    public void save() {
-        BASE.save(store);
-    }
-
-    public ConfigurationLoader<CommentedConfigurationNode> loader() {
-        return BASE.loader(store);
-    }
-
-    public CommentedConfigurationNode rootNode() {
-        return BASE.rootNode(store);
+    public ConfigStore(XtraCorePluginContainer entry, ConfigurationLoader<CommentedConfigurationNode> loader, CommentedConfigurationNode rootNode,
+            ConfigBase base) {
+        this.entry = entry;
+        this.loader = loader;
+        this.rootNode = rootNode;
+        this.base = base;
     }
 }
