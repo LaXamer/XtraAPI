@@ -45,7 +45,9 @@ public interface EntityHandler {
      * @param type The type of the entity
      * @return If the entity spawned successfully
      */
-    boolean spawnEntity(Location<World> loc, EntityType type);
+    default boolean spawnEntity(Location<World> loc, EntityType type) {
+        return spawnEntity(loc, type, SpawnTypes.PLUGIN);
+    }
 
     /**
      * Creates and spawns an entity, handling all checks, and returns if the
@@ -66,7 +68,9 @@ public interface EntityHandler {
      * @param type The item type to spawn in
      * @return If the item spawned successfully
      */
-    boolean spawnItem(Location<World> loc, ItemType type);
+    default boolean spawnItem(Location<World> loc, ItemType type) {
+        return spawnItem(loc, type, SpawnTypes.PLUGIN, 1);
+    }
 
     /**
      * Spawns an item with the specified spawn type as its spawn cause, with a
@@ -77,7 +81,9 @@ public interface EntityHandler {
      * @param spawnType The spawn type
      * @return If the item spawned successfully
      */
-    boolean spawnItem(Location<World> loc, ItemType type, SpawnType spawnType);
+    default boolean spawnItem(Location<World> loc, ItemType type, SpawnType spawnType) {
+        return spawnItem(loc, type, spawnType, 1);
+    }
 
     /**
      * Spawns an item with the specified quantity and a default spawn cause of
@@ -88,7 +94,9 @@ public interface EntityHandler {
      * @param quantity The number to spawn in
      * @return If the item spawned successfully
      */
-    boolean spawnItem(Location<World> loc, ItemType type, int quantity);
+    default boolean spawnItem(Location<World> loc, ItemType type, int quantity) {
+        return spawnItem(loc, type, SpawnTypes.PLUGIN, quantity);
+    }
 
     /**
      * Spawns an item with the specified location, type, spawn type, and
