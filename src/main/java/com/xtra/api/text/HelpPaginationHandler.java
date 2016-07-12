@@ -30,7 +30,6 @@ import java.util.Collection;
 import javax.annotation.Nullable;
 
 import org.spongepowered.api.service.pagination.PaginationList;
-import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.channel.MessageReceiver;
 import org.spongepowered.api.text.format.TextColor;
 
@@ -81,13 +80,6 @@ public interface HelpPaginationHandler {
     TextColor getDescriptionColor();
 
     /**
-     * Gets the {@link Command}s that were used in the pagination list.
-     * 
-     * @return The commands used in the pagination list
-     */
-    Collection<Command> getCommands();
-
-    /**
      * Gets the {@link Command}s that were ignored from the pagination list.
      * 
      * @return The ignored commands from the pagination list
@@ -95,11 +87,11 @@ public interface HelpPaginationHandler {
     Collection<Class<? extends Command>> getIgnoredCommands();
 
     /**
-     * Gets the {@link Text} contents of the pagination list.
+     * Gets the {@link ContentEntry}s of the pagination list.
      * 
-     * @return The text contents of the pagination list
+     * @return The content entries of the pagination list
      */
-    Collection<Text> getContents();
+    Collection<ContentEntry> getContents();
 
     /**
      * Gets the pagination list builder for this handler if further
