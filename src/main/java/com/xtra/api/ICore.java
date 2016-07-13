@@ -60,7 +60,7 @@ public interface ICore {
 
     Optional<ListenerHandler> getListenerHandler(Class<?> clazz);
 
-    HelpPaginationHandler.Builder createHelpPaginationBuilder(Object plugin);
+    HelpPaginationHandler.Builder createHelpPaginationBuilder(Class<?> clazz);
 
     Optional<HelpPaginationHandler> getHelpPaginationHandler(Class<?> clazz);
 

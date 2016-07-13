@@ -133,11 +133,11 @@ public class Core {
      * Creates a {@link HelpPaginationHandler.Builder} for creating help
      * pagination lists.
      * 
-     * @param plugin The plugin object
+     * @param clazz The plugin class
      * @return The help pagination builder
      */
-    public static HelpPaginationHandler.Builder createHelpPaginationBuilder(Object plugin) {
-        return CORE.createHelpPaginationBuilder(plugin);
+    public static HelpPaginationHandler.Builder createHelpPaginationBuilder(Class<?> clazz) {
+        return CORE.createHelpPaginationBuilder(clazz);
     }
 
     /**

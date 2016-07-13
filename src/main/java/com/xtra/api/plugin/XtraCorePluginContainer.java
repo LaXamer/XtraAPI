@@ -31,6 +31,7 @@ import org.spongepowered.api.plugin.PluginContainer;
 
 import com.xtra.api.command.CommandHandler;
 import com.xtra.api.config.ConfigHandler;
+import com.xtra.api.listener.ListenerHandler;
 import com.xtra.api.logger.Logger;
 import com.xtra.api.text.HelpPaginationHandler;
 
@@ -76,6 +77,14 @@ public interface XtraCorePluginContainer {
      *         plugin does not have one
      */
     Optional<ConfigHandler> getConfigHandler();
+
+    /**
+     * Gets the plugin's {@link ListenerHandler}.
+     * 
+     * @return The plugin's listener handler, or {@link Optional#empty()} if the
+     *         plugin does not have one
+     */
+    Optional<ListenerHandler> getListenerHandler();
 
     /**
      * Gets the plugin's {@link HelpPaginationHandler}.
