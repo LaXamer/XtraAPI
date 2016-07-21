@@ -29,7 +29,7 @@ import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.command.args.CommandContext;
 
 /**
- * Indicates that a piece of code will be ran sometime during a commands
+ * Indicates that a piece of code will be ran sometime during a command's
  * execution, such as before or after execution.
  * 
  * @see CommandPhase

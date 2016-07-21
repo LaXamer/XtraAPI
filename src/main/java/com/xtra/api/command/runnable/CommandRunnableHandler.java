@@ -82,9 +82,4 @@ public interface CommandRunnableHandler {
      * @param clazz The class to remove runnables from
      */
     void removeRunnables(Class<? extends Command> clazz);
-
-    /**
-     * Removes all runnables from all classes of this handler.
-     */
-    void removeAllRunnables();
 }
