@@ -38,7 +38,8 @@ public interface CommandAnnotationHelper {
      * Returns if the command will be ran asynchronously.
      * 
      * @param clazz The command class to check
-     * @return If the command will run asynchronously
+     * @return If the command will run asynchronously, or false if the register
+     *         command annotation was not found
      */
     boolean isAsync(Class<? extends Command> clazz);
 
@@ -46,7 +47,8 @@ public interface CommandAnnotationHelper {
      * Returns if this command has a parent command.
      * 
      * @param clazz The command class to check
-     * @return If the command has a parent command
+     * @return If the command has a parent command, or false if the register
+     *         command annotation was not found
      */
     boolean hasParent(Class<? extends Command> clazz);
 
@@ -54,8 +56,9 @@ public interface CommandAnnotationHelper {
      * Gets the parent command of the specified command.
      * 
      * @param clazz The command class to check
-     * @return The parent command or {@link Optional#empty()} if the specified
-     *         command does not have a parent command
+     * @return The parent command, or {@link Optional#empty()} if the specified
+     *         command does not have a parent command or if the register command
+     *         annotation could not be found
      */
     Optional<Class<? extends Command>> getParent(Class<? extends Command> clazz);
 
@@ -63,9 +66,10 @@ public interface CommandAnnotationHelper {
      * Gets the parent command object of the specified command.
      * 
      * @param clazz The command class to check
-     * @return The parent command object or {@link Optional#empty()} if the
+     * @return The parent command object, or {@link Optional#empty()} if the
      *         specified command does not have a parent command, or if the
-     *         parent command could not be found.
+     *         parent command could not be found, or if the register command
+     *         annotation could not be found
      */
     Optional<Command> getParentObject(Class<? extends Command> clazz);
 }

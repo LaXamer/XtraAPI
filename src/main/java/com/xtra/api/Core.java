@@ -31,6 +31,7 @@ import com.xtra.api.ban.BanHandler;
 import com.xtra.api.command.CommandHandler;
 import com.xtra.api.command.annotation.CommandAnnotationHelper;
 import com.xtra.api.config.ConfigHandler;
+import com.xtra.api.config.annotation.ConfigAnnotationHelper;
 import com.xtra.api.entity.EntityHandler;
 import com.xtra.api.listener.ListenerHandler;
 import com.xtra.api.logger.LoggerHandler;
@@ -168,6 +169,15 @@ public class Core {
      */
     public static CommandAnnotationHelper getCommandAnnotationHelper() {
         return CORE.getCommandAnnotationHelper();
+    }
+
+    /**
+     * Gets the {@link ConfigAnnotationHelper}.
+     * 
+     * @return The config annotation helper
+     */
+    public static ConfigAnnotationHelper getConfigAnnotationHelper() {
+        return CORE.getConfigAnnotationHelper();
     }
 
     /**
