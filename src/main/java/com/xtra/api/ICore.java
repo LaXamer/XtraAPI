@@ -33,7 +33,7 @@ import com.xtra.api.command.annotation.CommandAnnotationHelper;
 import com.xtra.api.config.ConfigHandler;
 import com.xtra.api.entity.EntityHandler;
 import com.xtra.api.listener.ListenerHandler;
-import com.xtra.api.logger.LogHandler;
+import com.xtra.api.logger.LoggerHandler;
 import com.xtra.api.plugin.XtraCorePluginContainer;
 import com.xtra.api.plugin.XtraCorePluginHandler;
 import com.xtra.api.registry.CommandRegistry;
@@ -70,8 +70,6 @@ public interface ICore {
 
     EntityHandler getEntityHandler();
 
-    LogHandler getLogHandler();
-
     XtraCorePluginHandler getPluginHandler();
 
     CommandRegistry getCommandRegistry();
@@ -79,6 +77,8 @@ public interface ICore {
     ConfigRegistry getConfigRegistry();
 
     DirectionHandler getDirectionHandler();
+
+    LoggerHandler getLoggerHandler();
 
     String getVersion();
 }

@@ -27,12 +27,12 @@ package com.xtra.api.plugin;
 
 import java.util.Optional;
 
+import org.slf4j.Logger;
 import org.spongepowered.api.plugin.PluginContainer;
 
 import com.xtra.api.command.CommandHandler;
 import com.xtra.api.config.ConfigHandler;
 import com.xtra.api.listener.ListenerHandler;
-import com.xtra.api.logger.Logger;
 import com.xtra.api.text.HelpPaginationHandler;
 
 /**

@@ -25,47 +25,28 @@
 
 package com.xtra.api.logger;
 
+import java.util.Optional;
+
+import org.slf4j.Logger;
+
+import com.xtra.api.plugin.XtraCorePluginContainer;
+
 /**
- * A custom logger provided by XtraCore to split plugin logging into separate
- * and easily readable files.
+ * XtraCore automatically creates plugin-unique Log4j2-backed slf4j loggers.
+ * Each logger follows a XtraCore-PLUGINNAME format. So for a plugin with the
+ * name 'MyPlugin', it will own a logger by the name of 'XtraCore-MyPlugin'.
+ * 
+ * <p>All {@link XtraCorePluginContainer}s have corresponding loggers. This
+ * interface is simply provided to serve as a convenience for fetching these
+ * loggers.</p>
  */
-public interface Logger {
+public interface LoggerHandler {
 
     /**
-     * Logs a message at {@link Level#INFO}.
+     * Gets a {@link Logger} for the specified class.
      * 
-     * @param message The message to log
+     * @param clazz The class to get the logger for
+     * @return The logger
      */
-    default void log(String message) {
-        log(Level.INFO, message);
-    }
-
-    /**
-     * Throws an error at {@link Level#ERROR}.
-     * 
-     * @param cause The error
-     */
-    default void log(Throwable cause) {
-        log(Level.ERROR, cause);
-    }
-
-    /**
-     * Logs a message at the specified {@link Level}.
-     * 
-     * @param level The level to log at
-     * @param message The message to log
-     */
-    void log(Level level, String message);
-
-    /**
-     * Throws an error at the specified {@link Level}.
-     * 
-     * @param level The level to log at
-     * @param cause The error to log
-     */
-    void log(Level level, Throwable cause);
-
-    public enum Level {
-        INFO, WARNING, ERROR;
-    }
+    Optional<Logger> getLogger(Class<?> clazz);
 }

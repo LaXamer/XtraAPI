@@ -33,7 +33,7 @@ import com.xtra.api.command.annotation.CommandAnnotationHelper;
 import com.xtra.api.config.ConfigHandler;
 import com.xtra.api.entity.EntityHandler;
 import com.xtra.api.listener.ListenerHandler;
-import com.xtra.api.logger.LogHandler;
+import com.xtra.api.logger.LoggerHandler;
 import com.xtra.api.plugin.XtraCorePluginContainer;
 import com.xtra.api.plugin.XtraCorePluginHandler;
 import com.xtra.api.registry.CommandRegistry;
@@ -180,15 +180,6 @@ public class Core {
     }
 
     /**
-     * Gets the {@link LogHandler}.
-     * 
-     * @return The log handler
-     */
-    public static LogHandler getLogHandler() {
-        return CORE.getLogHandler();
-    }
-
-    /**
      * Gets the {@link XtraCorePluginHandler}.
      * 
      * @return The plugin handler
@@ -222,6 +213,15 @@ public class Core {
      */
     public static DirectionHandler getDirectionHandler() {
         return CORE.getDirectionHandler();
+    }
+
+    /**
+     * Gets the {@link LoggerHandler}.
+     * 
+     * @return The logger handler
+     */
+    public static LoggerHandler getLoggerHandler() {
+        return CORE.getLoggerHandler();
     }
 
     /**
