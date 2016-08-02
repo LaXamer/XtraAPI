@@ -25,7 +25,10 @@
 
 package com.xtra.api.listener;
 
+import java.lang.reflect.Method;
 import java.util.Collection;
+
+import org.spongepowered.api.event.Listener;
 
 import com.xtra.api.plugin.XtraCorePluginContainer;
 
@@ -33,13 +36,24 @@ import com.xtra.api.plugin.XtraCorePluginContainer;
  * A handler used for automatically registering plugin listeners. Like a few
  * others, this handler is on a per-plugin basis, and can be used for retrieving
  * only the listeners of a specific {@link XtraCorePluginContainer}.
+ * 
+ * <p>Note that the handler will not register listeners in the main plugin
+ * class, as those are registered automatically by Sponge. The methods here will
+ * reflect this behavior.</p>
  */
 public interface ListenerHandler {
 
     /**
-     * Gets a collection of the classes that were registered.
+     * Gets a collection of the objects that were registered.
      * 
-     * @return A collection of the listener classes
+     * @return A collection of the listener objects
      */
-    Collection<Class<?>> getListenerClasses();
+    Collection<Object> getListenerObjects();
+
+    /**
+     * Gets the methods that were detected with the {@link Listener} annotation.
+     * 
+     * @return A collection of the listener methods
+     */
+    Collection<Method> getListenerMethods();
 }
