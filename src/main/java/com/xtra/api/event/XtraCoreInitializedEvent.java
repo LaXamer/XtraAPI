@@ -28,7 +28,7 @@ package com.xtra.api.event;
 import org.spongepowered.api.event.Event;
 
 /**
- * Fires when the XtraCore plugin has started initialization.
+ * Fires when the XtraCore plugin has initialized.
  */
-public interface XtraCoreInitializationEvent extends Event {
+public interface XtraCoreInitializedEvent extends Event {
 }
