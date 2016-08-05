@@ -29,6 +29,7 @@ import com.xtra.api.config.Config;
 import com.xtra.api.util.config.ConfigExecutor;
 import com.xtra.api.util.config.ConfigStore;
 
+import ninja.leaping.configurate.ConfigurationOptions;
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
 
@@ -41,6 +42,19 @@ public abstract class ConfigBase implements Config {
     // NOTE: this is overridden by the implementation
     private static ConfigExecutor BASE = null;
     private ConfigStore store = null;
+
+    /**
+     * A {@link ConfigBase} specific method, this allows you to modify any
+     * {@link ConfigurationOptions} before the configuration loader is built.
+     * 
+     * <p>Note that implementation of this method is completely optional. It
+     * will default to {@link ConfigurationOptions#defaults()}.</p>
+     * 
+     * @return The configuration options
+     */
+    public ConfigurationOptions setOptions() {
+        return ConfigurationOptions.defaults();
+    }
 
     public void init() {
         BASE.init(this);
