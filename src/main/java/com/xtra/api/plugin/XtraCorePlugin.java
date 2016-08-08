@@ -23,46 +23,42 @@
  * SOFTWARE.
  */
 
-package com.xtra.api.command;
+package com.xtra.api.plugin;
 
-import java.util.Collection;
-import java.util.Optional;
-
-import com.xtra.api.command.runnable.CommandRunnableHandler;
-import com.xtra.api.command.state.CommandStateHandler;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * A 'handler' for commands.
+ * Signifies a plugin that utilizes XtraCore.
+ * 
+ * <p>Various XtraCore handlers are automatically registered by default. Specify
+ * that they should be disabled in this annotation if you wish to not use
+ * them.</p>
  */
-public interface CommandHandler {
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+public @interface XtraCorePlugin {
 
     /**
-     * Gets the command object for the specified class.
+     * Whether or not to disable the command handler.
      * 
-     * @param clazz The command class
-     * @return The command object, or {@link Optional#empty()} if the command
-     *         could not be found
+     * @return If the command handler should be disabled
      */
-    Optional<Command> getCommand(Class<? extends Command> clazz);
+    boolean disableCommandHandler() default false;
 
     /**
-     * Gets a collection of all commands for this particular command handler.
+     * Whether or not to disable the config handler.
      * 
-     * @return All of the commands for this command handler
+     * @return If the config handler should be disabled
      */
-    Collection<Command> getCommands();
+    boolean disableConfigHandler() default false;
 
     /**
-     * Gets the associated {@link CommandRunnableHandler}.
+     * Whether or not to disable the listener handler.
      * 
-     * @return The command runnable handler
+     * @return If the listener handler should be disabled
      */
-    CommandRunnableHandler getCommandRunnableHandler();
-
-    /**
-     * Gets the associated {@link CommandStateHandler}.
-     * 
-     * @return The command state handler
-     */
-    CommandStateHandler getCommandStateHandler();
+    boolean disableListenerHandler() default false;
 }

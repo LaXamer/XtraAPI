@@ -35,7 +35,6 @@ import com.xtra.api.config.annotation.ConfigAnnotationHelper;
 import com.xtra.api.entity.EntityHandler;
 import com.xtra.api.listener.ListenerHandler;
 import com.xtra.api.logger.LoggerHandler;
-import com.xtra.api.plugin.XtraCorePluginContainer;
 import com.xtra.api.plugin.XtraCorePluginHandler;
 import com.xtra.api.registry.CommandRegistry;
 import com.xtra.api.registry.ConfigRegistry;
@@ -47,17 +46,9 @@ import com.xtra.api.world.direction.DirectionHandler;
  */
 public interface ICore {
 
-    XtraCorePluginContainer initialize(Object plugin);
-
-    CommandHandler createCommandHandler(Class<?> clazz);
-
     Optional<CommandHandler> getCommandHandler(Class<?> clazz);
 
-    ConfigHandler createConfigHandler(Class<?> clazz);
-
     Optional<ConfigHandler> getConfigHandler(Class<?> clazz);
-
-    ListenerHandler createListenerHandler(Class<?> clazz);
 
     Optional<ListenerHandler> getListenerHandler(Class<?> clazz);
 

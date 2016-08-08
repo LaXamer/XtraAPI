@@ -35,7 +35,6 @@ import com.xtra.api.config.annotation.ConfigAnnotationHelper;
 import com.xtra.api.entity.EntityHandler;
 import com.xtra.api.listener.ListenerHandler;
 import com.xtra.api.logger.LoggerHandler;
-import com.xtra.api.plugin.XtraCorePluginContainer;
 import com.xtra.api.plugin.XtraCorePluginHandler;
 import com.xtra.api.registry.CommandRegistry;
 import com.xtra.api.registry.ConfigRegistry;
@@ -51,29 +50,6 @@ public class Core {
     private static ICore CORE = null;
 
     /**
-     * Initializes a plugin for use by XtraCore. This method needs to be called
-     * before any others.
-     * 
-     * @param plugin The plugin object
-     * @return The new xtracore plugin container
-     */
-    public static XtraCorePluginContainer initialize(Object plugin) {
-        return CORE.initialize(plugin);
-    }
-
-    /**
-     * Creates a {@link CommandHandler} for the specified plugin class. Note
-     * that if a {@link CommandHandler} already exists for the specified plugin
-     * class, the pre-existing {@link CommandHandler} will be returned instead.
-     * 
-     * @param clazz The plugin class
-     * @return The command handler for the plugin
-     */
-    public static CommandHandler createCommandHandler(Class<?> clazz) {
-        return CORE.createCommandHandler(clazz);
-    }
-
-    /**
      * Gets the {@link CommandHandler} for the specified plugin class.
      * 
      * @param clazz The plugin class
@@ -85,18 +61,6 @@ public class Core {
     }
 
     /**
-     * Creates a {@link ConfigHandler} for the specified plugin class. Note that
-     * if a {@link ConfigHandler} already exists for the specified plugin class,
-     * the pre-existing {@link ConfigHandler} will be returned instead.
-     * 
-     * @param clazz The plugin class
-     * @return The config handler for the plugin
-     */
-    public static ConfigHandler createConfigHandler(Class<?> clazz) {
-        return CORE.createConfigHandler(clazz);
-    }
-
-    /**
      * Gets the {@link ConfigHandler} for the specified plugin class.
      * 
      * @param clazz The plugin class
@@ -105,18 +69,6 @@ public class Core {
      */
     public static Optional<ConfigHandler> getConfigHandler(Class<?> clazz) {
         return CORE.getConfigHandler(clazz);
-    }
-
-    /**
-     * Creates a {@link ListenerHandler} for the specified plugin class. Note
-     * that if a {@link ListenerHandler} already exists for the specified plugin
-     * class, the pre-existing {@link ListenerHandler} will be returned instead.
-     * 
-     * @param clazz The plugin class
-     * @return The listener handler for the plugin
-     */
-    public static ListenerHandler createListenerHandler(Class<?> clazz) {
-        return CORE.createListenerHandler(clazz);
     }
 
     /**
