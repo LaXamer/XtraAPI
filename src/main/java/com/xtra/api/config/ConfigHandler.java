@@ -28,6 +28,7 @@ package com.xtra.api.config;
 import java.util.Collection;
 import java.util.Optional;
 
+import com.xtra.api.config.annotation.RegisterConfig;
 import com.xtra.api.plugin.XtraCorePluginContainer;
 
 /**
@@ -46,6 +47,17 @@ public interface ConfigHandler {
      *         config could not be found
      */
     Optional<Config> getConfig(Class<? extends Config> clazz);
+
+    /**
+     * Gets the config object for the specified config name. The config name is
+     * specified within the {@link RegisterConfig} annotation. Note that
+     * appending '.conf' is not necessary.
+     * 
+     * @param configName The name of the config to get
+     * @return The config object, or {@link Optional#empty()} if the specified
+     *         config could not be found
+     */
+    Optional<Config> getConfig(String configName);
 
     /**
      * Gets a collection of all of the configs for this config handler.

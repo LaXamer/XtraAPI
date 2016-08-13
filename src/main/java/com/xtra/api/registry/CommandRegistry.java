@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import com.xtra.api.command.Command;
+import com.xtra.api.command.CommandHandler;
 import com.xtra.api.command.runnable.CommandRunnable;
 import com.xtra.api.command.state.CommandState;
 import com.xtra.api.plugin.XtraCorePluginContainer;
@@ -50,6 +51,17 @@ public interface CommandRegistry {
     Optional<Command> getCommand(Class<? extends Command> clazz);
 
     /**
+     * Gets the specified {@link Command} from the global command registry using
+     * the specified primary alias. Please view
+     * {@link CommandHandler#getCommand(String)} for the specification.
+     * 
+     * @param primaryAlias The primary alias
+     * @return The command object, or {@link Optional#empty()} if the command
+     *         could not be found
+     */
+    Optional<Command> getCommand(String primaryAlias);
+
+    /**
      * Gets a mapping entry of the specified {@link Command} object and its
      * corresponding {@link XtraCorePluginContainer}.
      * 
@@ -58,6 +70,18 @@ public interface CommandRegistry {
      *         {@link Optional#empty()} if the command could not be found
      */
     Optional<Map.Entry<Command, XtraCorePluginContainer>> getEntry(Class<? extends Command> clazz);
+
+    /**
+     * Gets a mapping entry of the specified {@link Command} object and its
+     * corresponding {@link XtraCorePluginContainer} from the global command
+     * registry using the specified primary alias. Please view
+     * {@link CommandHandler#getCommand(String)} for the specification.
+     * 
+     * @param primaryAlias The primary alias
+     * @return The command object, or {@link Optional#empty()} if the command
+     *         could not be found
+     */
+    Optional<Map.Entry<Command, XtraCorePluginContainer>> getEntry(String primaryAlias);
 
     /**
      * Gets a collection of all of the registered commands.

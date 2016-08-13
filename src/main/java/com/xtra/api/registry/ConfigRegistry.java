@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import com.xtra.api.config.Config;
+import com.xtra.api.config.ConfigHandler;
 import com.xtra.api.plugin.XtraCorePluginContainer;
 
 /**
@@ -48,6 +49,17 @@ public interface ConfigRegistry {
     Optional<Config> getConfig(Class<? extends Config> clazz);
 
     /**
+     * Gets the config for the specified config name from the global config
+     * registry.
+     * 
+     * @param configName The name of the config to get
+     * @return The config object, or {@link Optional#empty()} if the config
+     *         could not be found
+     * @see ConfigHandler#getConfig(String)
+     */
+    Optional<Config> getConfig(String configName);
+
+    /**
      * Gets a mapping entry of the specified config and its
      * {@link XtraCorePluginContainer}.
      * 
@@ -56,6 +68,18 @@ public interface ConfigRegistry {
      *         {@link Optional#empty()} if the config could not be found
      */
     Optional<Map.Entry<Config, XtraCorePluginContainer>> getEntry(Class<? extends Config> clazz);
+
+    /**
+     * Gets a mapping entry of the specified config and its
+     * {@link XtraCorePluginContainer} for the specified config name from the
+     * global config registry.
+     * 
+     * @param configName The name of the config to get
+     * @return The config object, or {@link Optional#empty()} if the config
+     *         could not be found
+     * @see ConfigHandler#getConfig(String)
+     */
+    Optional<Map.Entry<Config, XtraCorePluginContainer>> getEntry(String configName);
 
     /**
      * Gets a collection of all of the registered configs.

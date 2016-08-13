@@ -46,6 +46,28 @@ public interface CommandHandler {
     Optional<Command> getCommand(Class<? extends Command> clazz);
 
     /**
+     * Gets the command object for the specified primary alias. Please note that
+     * this <b>does</b> take child commands into account. The format is as
+     * follows:
+     * 
+     * <p><code>/mycommand</code> would have a primary alias of 'mycommand'
+     * (assuming that this is a specified alias in
+     * {@link Command#aliases()}).</p>
+     * 
+     * <p><code>/mycommand foo</code> would have a primary alias of
+     * 'mycommand$foo'. Note that the command 'foo', is a child command of
+     * 'mycommand'. Child commands are to be separated with a dollar sign. Note:
+     * even though the alias for this command would be 'foo', to avoid
+     * collisions, it is required to specify the parent command and a following
+     * dolar sign.</p>
+     * 
+     * @param primaryAlias The primary alias, as specified by the above format
+     * @return The command object, or {@link Optional#empty()} if the command
+     *         could not be found
+     */
+    Optional<Command> getCommand(String primaryAlias);
+
+    /**
      * Gets a collection of all commands for this particular command handler.
      * 
      * @return All of the commands for this command handler
